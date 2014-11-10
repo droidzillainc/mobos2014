@@ -7,7 +7,7 @@
     tools:context=".HelloWearActivity"
     tools:deviceIds="wear_square">
 
-    <com.droidzilla.hellowear.GameView
+    <com.droidzilla.zo4bwear.GameView
         android:id="@+id/gameView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
