@@ -1,5 +1,6 @@
 package com.droidzilla.sensoriada.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public interface Sensor {
@@ -15,9 +16,22 @@ public interface Sensor {
 		private Type(int code) {
 			this.code = code;
 		}
-		
-		
-	}
+
+        public static Type getType(int code) {
+            if (codeToTypeMapping == null) {
+                initMapping();
+            }
+            return codeToTypeMapping.get(code);
+        }
+
+        private static void initMapping() {
+            codeToTypeMapping = new HashMap<Integer, Type>();
+            for (Type s : values()) {
+                codeToTypeMapping.put(s.code, s);
+            }
+        }
+
+    }
 
 	public String getHumanReadableValue();
 

@@ -4,9 +4,20 @@ import com.droidzilla.sensoriada.model.Sensor;
 
 public class TemperatureSensor implements Sensor {
 
-	@Override
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    @Override
 	public String getHumanReadableValue() {
-		return null;
+        float floatValue = ((float)value)/100;
+		return floatValue+" °C";
 	}
 
 	@Override
