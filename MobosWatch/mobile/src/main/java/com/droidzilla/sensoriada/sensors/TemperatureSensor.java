@@ -37,10 +37,4 @@ public class TemperatureSensor implements Sensor {
 		return 1;
 	}
 
-	@Override
-	public Sensor parseSensorJson(String sensorJson) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

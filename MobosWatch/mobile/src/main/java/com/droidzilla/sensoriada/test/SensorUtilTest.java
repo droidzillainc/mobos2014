@@ -1,13 +1,17 @@
 package com.droidzilla.sensoriada.test;
 
 import android.test.InstrumentationTestCase;
+import android.util.Log;
 
 import com.droidzilla.sensoriada.SensorNodeUtil;
 import com.droidzilla.sensoriada.model.SensorNode;
 import com.droidzilla.sensoriada.sensors.TemperatureSensor;
 
 import java.util.List;
+import java.util.Locale;
 
+
+//03100131082362
 /**
  * Created by acraciun on 1/8/15.
  */
@@ -19,6 +23,7 @@ public class SensorUtilTest extends InstrumentationTestCase {
 //    }
 
     public void test2NodesX1TemperatureSensorV1() {
+
         String sensorData = "{\"sensorNodes\":[{\"id\":0,\"voltage\":2848, \"secondsAgo\":2, \"date\":\"2015-01-08 13:30:16\", \"sensors\":[{\"type\":10,\"version\":1,\"value\":-875}]},{\"id\":1,\"voltage\":3143, \"secondsAgo\":18, \"date\":\"2015-01-08 13:30:16\", \"sensors\":[{\"type\":10,\"version\":1,\"value\":2156}]}]}";
         List<SensorNode> sensorNodes =  SensorNodeUtil.parseSensorNodes(sensorData);
 

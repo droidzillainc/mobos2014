@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_mobos_light_green"
+        app:layout_box="all">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/did_you_like_so_far"
+            android:textColor="@color/black"
+            app:layout_box="top" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/thumb_up" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/thumb_down" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/delayed_confirm_layout"
+            android:visibility="invisible">
+
+            <android.support.wearable.view.DelayedConfirmationView
+                android:id="@+id/delayed_confirm"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cancel_64"
+                app:circle_border_color="@color/color_mobos_dark_green"
+                app:circle_border_width="4dp"
+                app:circle_padding="4dp"
+                app:circle_radius="30dp"></android.support.wearable.view.DelayedConfirmationView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/assuming_yes"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.wearable.view.BoxInsetLayout>

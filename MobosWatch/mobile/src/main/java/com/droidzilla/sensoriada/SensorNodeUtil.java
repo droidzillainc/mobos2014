@@ -36,8 +36,11 @@ public class SensorNodeUtil {
                     final int type = sensorObject.getInt("type");
                     final int version = sensorObject.getInt("version");
 
+
+
                     String className = SensorConfiguration.getInstance().getImplementation(Sensor.Type.getType(type));
                     Sensor sensor = (Sensor) Class.forName(className).newInstance();
+
                     if (sensor.getMaximumSupportedVersion() < version) {
                         throw new IllegalArgumentException("Invalid sensor version " + version + " for sensor type " + type);
                     }
@@ -45,7 +48,6 @@ public class SensorNodeUtil {
                     Iterator<String> keysIterator = sensorObject.keys();
                     while (keysIterator.hasNext()) {
                         String key = keysIterator.next();
-                        Log.e("cacaß", "Processing:" + key);
                         if (!key.equals("type") && !key.equals("version")) {
                             Object value = sensorObject.get(key);
                             sensor.getClass().getMethod("set"+key.substring(0,1).toUpperCase()+key.substring(1), value.getClass()).invoke(sensor, value);

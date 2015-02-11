@@ -33,13 +33,12 @@ public interface Sensor {
 
     }
 
-	public String getHumanReadableValue();
+	String getHumanReadableValue();
 
-	public Type[] getSupportedTypes();
+	Type[] getSupportedTypes();
 	
-	public boolean isTypeSupported(Type type);
+	boolean isTypeSupported(Type type);
 	
-	public int getMaximumSupportedVersion();
-	
-	public Sensor parseSensorJson(String sensorJson);
+	int getMaximumSupportedVersion();
+
 }
