@@ -38,7 +38,7 @@ public class MobosWatchFaceService extends CanvasWatchFaceService {
             Log.e("caca", "onCreate");
             timePaint = new Paint();
             timePaint.setColor(Color.GREEN);
-            timePaint.setTextSize(70);
+            timePaint.setTextSize(getResources().getDimension(R.dimen.time_text_size));
             backgroundPaint = new Paint();
             backgroundPaint.setColor(Color.BLACK);
         }
@@ -83,7 +83,26 @@ public class MobosWatchFaceService extends CanvasWatchFaceService {
 
         private String getTimeString() {
             Calendar now = Calendar.getInstance();
-            return now.get(Calendar.HOUR_OF_DAY) + ":" + now.get(Calendar.MINUTE) + ":" + now.get(Calendar.SECOND);
+            int hours = now.get(Calendar.HOUR_OF_DAY);
+            String hoursTextPrefix = hours < 10 ? "0":"";
+            int minutes = now.get(Calendar.HOUR_OF_DAY);
+            String minutesTextPrefix = minutes < 10 ? "0":"";
+
+            StringBuilder timeStringBuilder = new StringBuilder();
+            timeStringBuilder.append(hoursTextPrefix);
+            timeStringBuilder.append(hours);
+            timeStringBuilder.append(":");
+            timeStringBuilder.append(minutesTextPrefix);
+            timeStringBuilder.append(minutes);
+            if (!isInAmbientMode && isVisible) {
+                int seconds = now.get(Calendar.HOUR_OF_DAY);
+                String secondsTextPrefix = seconds < 10 ? "0":"";
+                timeStringBuilder.append(":");
+                timeStringBuilder.append(secondsTextPrefix);
+                timeStringBuilder.append(seconds);
+            }
+
+            return timeStringBuilder.toString();
         }
 
         @Override
